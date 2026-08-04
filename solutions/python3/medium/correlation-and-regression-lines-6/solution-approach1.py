@@ -7,6 +7,12 @@
 # Language    python3
 # Status      Accepted
 # Submitted   2026-08-04, 10:50 a.m.
+# Technique   pearson-correlation-coefficient-calculation
+# Time        O(n)
+# Space       O(n)
+# Insight     The implementation calculates the Pearson correlation coefficient by computing the covariance of the two datasets divided by the product of their standard deviations.
+# Interview   Before: "How would you calculate the linear relationship between two datasets?" After: "I compute the Pearson correlation coefficient in O(n) time by calculating the means and then the sum of products of deviations, ensuring the result is rounded to three decimal places as required."
+# Pitfalls    (1) Failure to use floating-point division when calculating means can lead to precision loss in languages with integer division.  (2) Rounding the result prematurely before the final output can violate the requirement to round to three decimal places.  (3) Assuming the input lists are of equal length without validation could cause zip to truncate data silently.
 # ──────────────────────────────────────────────────
 
 from math import sqrt
