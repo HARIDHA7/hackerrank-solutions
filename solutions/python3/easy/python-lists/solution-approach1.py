@@ -7,6 +7,12 @@
 # Language    python3
 # Status      Accepted
 # Submitted   2026-08-13, 10:09 a.m.
+# Technique   command-pattern-dispatch
+# Time        O(N * M) where N is the number of comma…
+# Space       O(M) where M is the maximum number of e…
+# Insight     The implementation uses a conditional dispatch pattern to map string-based command inputs directly to corresponding Python list methods.
+# Interview   Before: "How would you handle a sequence of dynamic list operations?" After: "I would use a command-pattern dispatch to map input strings to list methods, noting that operations like sort take O(M log M) and insert/remove take O(M) time, where M is the current list size."
+# Pitfalls    (1) The remove method raises a ValueError if the specified integer is not present in the list.  (2) The pop method raises an IndexError if called on an empty list.  (3) The insert method does not raise an error for out-of-bounds indices but instead appends or prepends the element.
 # ──────────────────────────────────────────────────
 
 n = int(input())
