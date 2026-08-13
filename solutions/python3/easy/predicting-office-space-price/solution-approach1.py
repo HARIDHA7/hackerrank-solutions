@@ -7,6 +7,12 @@
 # Language    python3
 # Status      Accepted
 # Submitted   2026-08-13, 10:03 a.m.
+# Technique   polynomial-feature-expansion-gaussian-eliminati…
+# Time        O(N * F^3 + T * F^3)
+# Space       O(N * F^3 + F^6)
+# Insight     The implementation transforms input features into a third-degree polynomial space and solves the normal equation using Gaussian elimination with Tikhonov regularization to ensure numerical stability.
+# Interview   Before: "I would use linear regression." After: "Since the relationship is polynomial of order less than 4, I expand the feature vector to include all combinations up to degree 3, then solve the normal equation in O(N * F^3) time to handle the non-linear mapping."
+# Pitfalls    (1) Failing to include the bias term (1.0) in the polynomial feature expansion leads to an incorrect intercept calculation.  (2) Ignoring numerical stability by omitting the small regularization term (1e-8) on the diagonal of the matrix A can cause singular matrix errors during Gaussian elimination.  (3) Assuming the polynomial order is exactly 3 rather than 'less than 4' may lead to overfitting if the underlying function is simpler.
 # ──────────────────────────────────────────────────
 
 # Enter your code here. Read input from STDIN. Print output to STDOUT
